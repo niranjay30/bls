@@ -1,0 +1,30 @@
+<%- include('partials/header'); -%>
+
+<div class="content">
+  <h2 class="shop-heading">Collections</h2>
+
+  <div class="product-row">
+    <% categories.forEach(function(category){ %>
+      <div class="product-card">
+        <a href="/shop/<%=category.name%>">
+          <div class="product-overview">
+            <img class="product-overview-image" src="<%=category.products[0].thumbnail%>" alt="">
+            <div class="product-overview-options">
+              <div class="product-actions">
+                <!-- <a href="#"><button type="button"><i class="fas fa-shopping-cart"></i>Buy Now</button></a> -->
+                <!-- <a href="#"><button type="button"><i class="far fa-eye"></i>View All</button></a> -->
+              </div>
+            </div>
+          </div>
+        </a>
+        <div class="product-details">
+          <h3 class="product-details-name"><%=category.name%></h3>
+          <p class="product-details-price"><%=category.products.length%> items</p>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+
+</div>
+
+<%- include('partials/footer'); -%>

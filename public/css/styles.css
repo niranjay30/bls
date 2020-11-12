@@ -1,0 +1,588 @@
+ @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Raleway:wght@100;200;300;400;500;600&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap');
+ /*
+ font-family: "Cormorant Garamond", serif;
+ font-family: "Raleway", sans-serif;
+font-family: 'Inter', sans-serif;
+*/
+
+body{
+  margin: 0;
+  padding: 0 0 0 0;
+  font-family: "Raleway", sans-serif;
+  box-sizing: border-box;
+  background-color: #EEECE8;
+}
+
+h2{
+  color: #46321E;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+/* --------------Header Starts----------------- */
+header{
+  text-align: center;
+}
+
+.logo{
+  margin: 0;
+  padding: 1rem 0 1rem;
+}
+
+
+
+nav{
+  background-color: #EEECE8;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid #CDC9C0;
+  z-index: 101;
+}
+
+nav a{
+  margin: 0 1.5rem 0;
+  padding: 0.6rem 0 0.35rem;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000;
+}
+
+/* Navbar Hover effect */
+nav a{
+    position: relative;
+}
+
+nav a:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #CDC9C0;
+  visibility: hidden;
+  transition: all 0.2s ease-in-out;
+}
+
+nav a:hover:before {
+  visibility: visible;
+  width: 100%;
+}
+
+
+hr{
+  border-bottom: 0;
+  border-top: 1px solid #CDC9C0;
+  margin: 0;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  /* left: 14rem; */
+}
+
+.content{
+  margin: 0;
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+  body{
+    margin: 0;
+    padding: 0 10rem 0;
+  }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    /* left: 10rem;
+    right: 10rem; */
+  }
+
+  nav a{
+    font-size: 0.75rem;
+  }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+  body{
+    margin: 0;
+    padding: 0 5rem 0;
+  }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    /* left: 5rem;
+    right: 5rem; */
+  }
+
+  nav a{
+    font-size: 1.1rem;
+  }
+
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  body{
+    margin: 0;
+    padding: 0 5rem 0;
+  }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    /* left: 5rem;
+    right: 5rem; */
+  }
+
+  nav a{
+    font-size: 1.1rem;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px){
+  body{
+    margin: 0;
+    padding: 0 5rem 0;
+  }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    /* left: 5rem;
+    right: 5rem; */
+  }
+
+  nav a{
+    font-size: 1.1rem;
+  }
+}
+/* -------------------Header Ends------------------- */
+
+
+/* -----------------Carousel Starts--------------- */
+/* .carousel{
+  margin: 0;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+} */
+
+.slider{
+  position: relative;
+  /* overflow: hidden; */
+  height: 70vh;
+  width: 100%;
+  /* margin-top: 3.5rem;
+  margin-bottom: 3.5rem; */
+  margin: 0;
+}
+
+.slide{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.slide.current{
+  opacity: 1;
+}
+
+.slide .slide-layer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.slide .content{
+  position: absolute;
+  top: 43%;
+  left: 10%;
+  width: 80%;
+  height: auto;
+  color: #fff;
+  opacity: 0;
+  text-align: center;
+}
+
+.slide.current .content{
+  opacity: 1;
+  transform: translateY(-1rem);
+  transition: all 0.7s ease-in-out 0.3s;
+}
+
+.buttons button#prev{
+  position: absolute;
+  top: 50%;
+  left: 2%;
+}
+
+.buttons button#next{
+  position: absolute;
+  top: 50%;
+  right: 2%;
+}
+
+.buttons button{
+  border: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 100%;
+  padding: 0.75rem 0.9rem;
+  outline: none;
+  transition: 0.4s;
+}
+
+.buttons button:hover{
+  background-color: #fff;
+  color: #333;
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+  .slider{
+    height: 67vh;
+  }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+  .slider{
+    height: 40vh;
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  .slider{
+    height: 30vh;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px){
+  .slider{
+    height: 30vh;
+  }
+}
+
+  /* background images */
+  .slide:first-child{
+    background: url("../images/1.jpg") no-repeat center center/cover;
+  }
+  .slide:nth-child(2){
+    background: url("../images/2.jpg") no-repeat center center/cover;
+  }
+  .slide:nth-child(3){
+    background: url("../images/3.jpg") no-repeat center center/cover;
+  }
+  .slide:nth-child(4){
+    background: url("../images/4.jpg") no-repeat center center/cover;
+  }
+/* ----------------Carousel Ends---------------- */
+
+
+/* -------------Covid Guidelines Starts--------------- */
+.covid-guidelines{
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+  padding: 1rem 7rem;
+}
+/* -------------Covid Guidelines Ends--------------- */
+
+
+/* -------------Bestsellers Starts--------------- */
+.featured{
+  margin: 3.5rem 0;
+}
+
+.featured-heading{
+  text-align: center;
+}
+
+.products{
+  width: 100%;
+}
+
+.product-row{
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.product-card{
+  width: 18rem;
+  height: 23rem;
+  text-align: center;
+}
+
+.product-overview{
+  position: relative;
+}
+
+.product-overview-image{
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: .4s ease;
+  backface-visibility: hidden;
+}
+
+.product-overview-options{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: .4s ease;
+  text-align: center;
+}
+
+.product-overview-options button{
+  border: 1px solid #EEECE8;
+  margin-bottom: 0.75rem;
+  background-color: #EEECE8;
+  padding: 0.75rem;
+  width: 60%;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #454441;
+  transition: 0.4s ease-in-out;
+  outline: none;
+}
+
+.product-overview-options button:hover{
+  cursor: pointer;
+  color: #000;
+  background-color: #F0DAB8;
+  border: 1px solid #F0DAB8;
+}
+
+.product-overview-options button i{
+  padding-right: 0.5rem;
+}
+
+.product-overview:hover .product-overview-image{
+  opacity: 0.6;
+}
+
+.product-overview:hover .product-overview-options{
+  opacity: 1;
+}
+
+.product-actions{
+  position: absolute;
+  width: 80%;
+  height: 40%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+	margin:auto;
+}
+
+.product-details-name{
+  margin: 0.5rem;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #46321E;
+}
+
+.product-details-price{
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  margin: 0;
+}
+/* -------------Bestsellers Ends--------------- */
+
+
+/* -------------Key Features Starts--------------- */
+.features{
+  background: url("../images/usp.jpg") no-repeat center center/cover;
+  height: 30rem;
+  /* margin: 3.5rem 0; */
+}
+
+.feature-layer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.feature{
+  text-align: center;
+  margin: 9rem 0;
+  width: 25%;
+  color: #fff;
+}
+
+.feature h3{
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+/* -------------Key Features Ends--------------- */
+
+
+/* ------------- Call to Action Starts -------------- */
+.call-to-action{
+  margin: 3.5rem 0;
+  text-align: center;
+}
+
+.call-to-action h2{
+  letter-spacing: 1px;
+}
+
+.social-icons{
+  margin-top: 2rem;
+}
+
+.social-icons a{
+  margin: 1rem;
+  transition: 0.4s;
+}
+
+.social-icons a:hover{
+  color: #46321E;
+}
+
+/* ------------- Call to Action Ends -------------- */
+
+
+/* ------------------ Footer Starts --------------- */
+footer{
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
+}
+
+.trademark{
+  text-align: center;
+}
+
+.footer-content{
+  padding: 0 20rem 3.75rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+h4{
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+.nav-links{
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-link{
+  margin-top: 1rem;
+}
+
+.nav-link:first-child{
+  margin-top: 0;
+}
+
+.nav-link:hover{
+  text-decoration: underline;
+}
+
+.footer-notice{
+  width: 27%;
+  line-height: 1.5;
+}
+
+.footer-notice p{
+  margin: 0;
+}
+
+.footer-notice a{
+  text-decoration: underline;
+}
+/* ------------------ Footer Ends --------------- */
+
+/* ---------------------------------------------------------------- Contact Page Starts ------------------------------------------------------------- */
+.contact-container{
+  position: relative;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  margin: 3.5rem 0;
+  padding: 1rem;
+}
+
+.contact-container-inner:nth-child(2){
+  margin-top: 4rem;
+}
+
+.contact-container-inner i{
+  margin-right: 0.75rem;
+}
+
+.contact-container h2{
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 3rem;
+}
+
+.contact-container p{
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.contact-container p a{
+  text-decoration: underline;
+}
+/* ---------------------------------------------------------------- Contact Page Ends ------------------------------------------------------------- */
+
+
+/* ---------------------------------------------------------------- Shop Page Ends ------------------------------------------------------------- */
+.shop-heading{
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.product-card a{
+  cursor: pointer;
+}
+/* ---------------------------------------------------------------- Shop Page Ends ------------------------------------------------------------- */
