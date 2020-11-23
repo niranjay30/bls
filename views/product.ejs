@@ -1,4 +1,35 @@
 <%- include('partials/header'); -%>
 
+<div class="content">
+
+  <div class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="breadcrumbs-separator">/</span>
+    <a href="/shop">Shop</a>
+    <span class="breadcrumbs-separator">/</span>
+    <a href="/shop/<%=categoryName%>"><%=categoryName%></a>
+    <span class="breadcrumbs-separator">/</span>
+    <span class="breadcrumbs-separator"><%=product.productName%></span>
+  </div>
+
+  <div class="product-page">
+    <div class="product-page-image">
+      <img src="<%=product.thumbnail%>" alt="">
+    </div>
+    <div class="product-page-information">
+      <h2 class="product-name"><%=product.productName%></h2>
+      <h3 class="product-information-price">Rs. <%=product.price%></h3>
+      <div class="product-page-buy-options">
+        <h4>Buy Now</h4>
+        <div class="buy-links">
+          <a href="#"><img class="buy-link flipkart" src="/images/flipkart.png" alt="Flipkart buy link"></a>
+          <a href="#"><img class="buy-link amazon" src="/images/amazon.png" alt="Amazon buy link"></a>
+        </div>
+      </div>
+      <p class="product-information-description"><%=product.description%></p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%- include('partials/footer'); -%>

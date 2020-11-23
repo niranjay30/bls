@@ -21,6 +21,17 @@ function adjustWidth() {
    $("nav").width(parentwidth);
  }
 
+
+//////////////////// Responsive Navbar ///////////////////////
+function openSideMenu(){
+  document.getElementById("side-menu").style.width = "100vw";
+}
+
+function closeSideMenu(){
+  document.getElementById("side-menu").style.width = "0";
+}
+
+
 //////////// Carousel ///////////////
 const slides = document.querySelectorAll(".slide");
 const prevButton = document.querySelector("#prev");

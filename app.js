@@ -32,20 +32,14 @@ const categorySchema = {
 
 const Category = mongoose.model("Category", categorySchema);
 
-// Category.find({}, function(err, result){
-//   if(err) throw err;
-//   console.log(result);
-// });
-
-
 app.get("/", (req, res) => {
   Category.find({}, function(err, categories){
     if(err){
       console.log(err);
     } else {
       let featured = categories[0];
-      // console.log(featured.products);
-      res.render("home", {featuredProducts: featured.products});
+      // console.log(featured.name);
+      res.render("home", {featuredProducts: featured});
     }
   });
 });
@@ -83,20 +77,37 @@ app.get("/shop", (req, res) => {
 app.get("/shop/:category", function(req, res){
   const reqdCategory = req.params.category;
 
-  Category.findOne({name: reqdCategory}, function(err, result){
+  Category.findOne({name: reqdCategory}, function(err, categoryProducts){
     if (err){
       console.log(err);
     } else {
-      // console.log(result.products);
-      res.render("category", {category: result});
+      // console.log(categoryProducts);
+      res.render("category", {category: categoryProducts});
     }
   })
 });
 
-app.get("/shop/:categoryName/:product", function(req, res){
-  // const reqdCategory = req.params.categoryName;
-  const reqdproduct = req.params.product;
+app.get("/shop/:category/products/:product", function(req, res){
+  const reqdCategory = req.params.category;
+  const reqdProduct = req.params.product;
 
+  Category.find({
+    "name": reqdCategory
+  },
+  {
+    "products": {
+      "$elemMatch": {
+        "productName": reqdProduct
+      }
+    }
+  }, function(err, product){
+    if(err){
+      console.log(err);
+    } else {
+      // console.log(product[0].products[0]);
+      res.render("product", {categoryName: reqdCategory, product: product[0].products[0]});
+    }
+  });
 
 });
 
